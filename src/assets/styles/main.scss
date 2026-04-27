@@ -1,0 +1,1260 @@
+@import 'variables';
+@import 'bootstrap/scss/bootstrap';
+
+// ── Global resets ──
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  font-family: $font-family-sans-serif;
+  color: $brand-text;
+  background: $body-bg;
+  overflow-x: hidden;
+}
+
+// ── Header ──
+.site-header {
+  position: sticky;
+  top: 0;
+  z-index: 1030;
+  background: #fff;
+  border-bottom: 1px solid #eee;
+
+  .navbar-brand {
+    font-family: $font-family-heading;
+    font-weight: 800;
+    font-size: 1rem;
+    text-transform: uppercase;
+    color: $brand-dark;
+    letter-spacing: 0.5px;
+  }
+
+  .nav-link {
+    font-family: $font-family-heading;
+    font-weight: 700;
+    font-size: 0.85rem;
+    text-transform: uppercase;
+    color: $brand-dark;
+    padding: 0.5rem 1rem !important;
+
+    &:hover,
+    &:focus {
+      color: $brand-gold;
+    }
+  }
+
+  .btn-request {
+    background: $brand-gold;
+    color: #000;
+    border: 1.5px solid #000;
+    border-radius: 50px;
+    font-family: $font-family-heading;
+    font-weight: 600;
+    font-size: 0.85rem;
+    padding: 0.45rem 1.25rem;
+    display: inline-flex;
+    align-items: center;
+    gap: 0.4rem;
+    transition: opacity 0.2s;
+
+    &:hover {
+      opacity: 0.85;
+    }
+  }
+}
+
+// ── Seamless section flow ──
+.hero-section,
+.support-section,
+.memorial-section,
+.mission-section,
+.gallery-section,
+.parents-section,
+.testimonials-section,
+.contact-section,
+.site-footer {
+  margin: 0;
+  padding: 0;
+}
+
+// ── Hero section ──
+.hero-section {
+  position: relative;
+  min-height: 600px;
+  overflow: hidden;
+  background: #f0f4ff;
+
+  // Decorative corner accents
+  .hero-accent-top {
+    position: absolute;
+    top: 0;
+    right: 0;
+    width: 120px;
+    height: auto;
+    z-index: 1;
+    pointer-events: none;
+  }
+
+  .hero-accent-bottom {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100px;
+    height: auto;
+    z-index: 1;
+    pointer-events: none;
+  }
+
+  .hero-content {
+    position: relative;
+    z-index: 2;
+    padding-top: 3rem;
+    padding-bottom: 3rem;
+  }
+
+  .hero-tagline {
+    font-size: 1.15rem;
+    margin-bottom: 0.25rem;
+
+    .brand-highlight {
+      color: $brand-gold;
+      font-weight: 700;
+    }
+  }
+
+  .hero-heading {
+    font-family: $font-family-sans-serif;
+    font-weight: 700;
+    font-size: 3.2rem;
+    line-height: 1.1;
+    color: $brand-dark;
+    margin-bottom: 1.5rem;
+
+    @media (max-width: 768px) {
+      font-size: 2.2rem;
+    }
+  }
+
+  .hero-actions {
+    display: flex;
+    align-items: center;
+    gap: 1.25rem;
+    margin-bottom: 1.5rem;
+    flex-wrap: wrap;
+  }
+
+  .btn-hero-primary {
+    background: $brand-gold;
+    color: #000;
+    border: 1.5px solid #000;
+    border-radius: 50px;
+    font-weight: 600;
+    font-size: 0.95rem;
+    padding: 0.6rem 1.5rem;
+    display: inline-flex;
+    align-items: center;
+    gap: 0.4rem;
+    transition: opacity 0.2s;
+
+    &:hover {
+      opacity: 0.85;
+    }
+  }
+
+  .btn-hero-secondary {
+    background: transparent;
+    border: none;
+    color: $brand-dark;
+    font-weight: 500;
+    font-size: 0.95rem;
+    padding: 0.6rem 0;
+    text-decoration: none;
+
+    &:hover {
+      color: $brand-gold;
+    }
+  }
+
+  .hero-star {
+    color: $brand-gold;
+    font-size: 2.5rem;
+    line-height: 1;
+  }
+
+  .hero-description {
+    font-size: 1rem;
+    color: $brand-text;
+    border-left: 3px solid $brand-gold;
+    padding-left: 1rem;
+    max-width: 380px;
+  }
+
+  // Right-side images
+  .hero-images {
+    position: relative;
+    min-height: 500px;
+    width: 100%;
+
+    .hero-img-main {
+      position: relative;
+      border-radius: 4px;
+      object-fit: cover;
+      width: 65%;
+      max-width: 436px;
+      height: auto;
+      aspect-ratio: 436 / 527;
+      box-shadow: 0 8px 30px rgba(0, 0, 0, 0.12);
+      z-index: 2;
+    }
+
+    .hero-img-secondary {
+      position: absolute;
+      top: 0;
+      right: 0;
+      width: 45%;
+      max-width: 280px;
+      height: 90%;
+      object-fit: cover;
+      border-radius: 4px;
+      box-shadow: 0 8px 30px rgba(0, 0, 0, 0.12);
+      z-index: 1;
+    }
+  }
+}
+
+// ── Support / Family section ──
+.support-section {
+  position: relative;
+  background: $brand-dark;
+  color: #fff;
+  overflow: hidden;
+
+  .support-blue-bar {
+    height: 5px;
+    background: #2196f3;
+    width: 100%;
+  }
+
+  .support-img {
+    width: 100%;
+    max-width: 380px;
+    border-radius: 8px;
+    object-fit: cover;
+    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.3);
+  }
+
+  .support-heading {
+    font-family: $font-family-sans-serif;
+    font-weight: 500;
+    font-size: 2.6rem;
+    line-height: 1.15;
+    color: #fff;
+    margin-bottom: 1rem;
+
+    @media (max-width: 768px) {
+      font-size: 1.8rem;
+    }
+  }
+
+  .support-text {
+    font-size: 0.95rem;
+    color: #d1d5db;
+    line-height: 1.7;
+    margin-bottom: 1.5rem;
+    max-width: 520px;
+  }
+
+  .btn-guidelines {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.4rem;
+    background: $brand-gold;
+    color: #000;
+    border: 1.5px solid #000;
+    border-radius: 50px;
+    font-weight: 600;
+    font-size: 0.9rem;
+    padding: 0.55rem 1.4rem;
+    text-decoration: none;
+    transition: opacity 0.2s;
+
+    &:hover {
+      opacity: 0.85;
+      color: #000;
+    }
+  }
+}
+
+// ── Jackie Bennett Memorial section ──
+.memorial-section {
+  position: relative;
+  background: #f5f0e6;
+  overflow: hidden;
+
+  .memorial-torn-edge {
+    height: 20px;
+    background: $brand-dark;
+    mask-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 1200 20'%3E%3Cpath d='M0 0h1200v8c-30 6-60-4-90 2s-60-3-90 4-60-5-90 3-60-2-90 5-60-4-90 2-60-3-90 4-60-5-90 3-60-2-90 5-60-4-90 2-60-3-90 4-60-5-90 3-60-2-90 5V0z' fill='%23000'/%3E%3C/svg%3E");
+    mask-size: 100% 100%;
+    -webkit-mask-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 1200 20'%3E%3Cpath d='M0 0h1200v8c-30 6-60-4-90 2s-60-3-90 4-60-5-90 3-60-2-90 5-60-4-90 2-60-3-90 4-60-5-90 3-60-2-90 5-60-4-90 2-60-3-90 4-60-5-90 3-60-2-90 5V0z' fill='%23000'/%3E%3C/svg%3E");
+    -webkit-mask-size: 100% 100%;
+  }
+
+  .memorial-name {
+    font-family: $font-family-sans-serif;
+    font-weight: 700;
+    font-size: 3rem;
+    color: $brand-dark;
+    margin-bottom: 1.25rem;
+
+    @media (max-width: 768px) {
+      font-size: 2rem;
+    }
+  }
+
+  .memorial-message {
+    font-size: 0.95rem;
+    color: #4b5563;
+    line-height: 1.8;
+    max-width: 640px;
+    margin: 0 auto 1rem;
+  }
+
+  .text-gold {
+    color: $brand-gold;
+    font-weight: 700;
+  }
+
+  .memorial-sub {
+    font-size: 0.95rem;
+    color: #4b5563;
+    margin-bottom: 1.5rem;
+  }
+
+  .memorial-contact {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.75rem;
+    background: #fff;
+    border-radius: 50px;
+    padding: 0.5rem 0.5rem 0.5rem 1.25rem;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.06);
+    margin-bottom: 1.25rem;
+    flex-wrap: wrap;
+    justify-content: center;
+  }
+
+  .memorial-contact-label {
+    font-size: 0.9rem;
+    color: #6b7280;
+  }
+
+  .btn-email {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.35rem;
+    background: $brand-gold;
+    color: #000;
+    border: 1.5px solid #000;
+    border-radius: 50px;
+    font-weight: 600;
+    font-size: 0.85rem;
+    padding: 0.4rem 1.1rem;
+    text-decoration: none;
+    transition: opacity 0.2s;
+
+    &:hover {
+      opacity: 0.85;
+      color: #000;
+    }
+  }
+
+  .memorial-thanks {
+    font-size: 0.9rem;
+    color: #6b7280;
+  }
+
+  .memorial-decor-left {
+    width: 160px;
+    height: auto;
+    opacity: 0.9;
+  }
+
+  .memorial-decor-right {
+    width: 160px;
+    height: auto;
+    opacity: 0.85;
+  }
+}
+
+// ── Mission / Love Quilts USA section ──
+.mission-section {
+  position: relative;
+  background: #ffffff;
+  overflow: hidden;
+
+  .mission-image-wrapper {
+    position: relative;
+  }
+
+  .mission-img {
+    width: 100%;
+    max-width: 460px;
+    border-radius: 8px;
+    border: 5px solid #4a90d9;
+    object-fit: cover;
+    display: block;
+  }
+
+  .mission-swoosh {
+    position: absolute;
+    bottom: -20px;
+    left: -10px;
+    width: 120px;
+    height: 120px;
+    background: $brand-gold;
+    border-radius: 0 60% 0 60%;
+    opacity: 0.7;
+    z-index: -1;
+  }
+
+  .mission-heading {
+    font-family: $font-family-sans-serif;
+    font-weight: 700;
+    font-size: 2.8rem;
+    color: $brand-dark;
+    margin-bottom: 0.5rem;
+
+    @media (max-width: 768px) {
+      font-size: 2rem;
+    }
+  }
+
+  .mission-intro {
+    font-size: 0.9rem;
+    color: $brand-text-light;
+    line-height: 1.7;
+    margin-bottom: 1.5rem;
+    max-width: 480px;
+  }
+
+  .mission-cards {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+  }
+
+  .mission-card {
+    background: #f5ecd7;
+    border-radius: 12px;
+    padding: 1.25rem 1.5rem;
+  }
+
+  .mission-card-title {
+    font-family: $font-family-sans-serif;
+    font-weight: 600;
+    font-size: 1.25rem;
+    color: $brand-dark;
+    margin-bottom: 0.4rem;
+  }
+
+  .mission-card-text {
+    font-size: 0.88rem;
+    color: $brand-text-light;
+    line-height: 1.65;
+    margin-bottom: 0.75rem;
+  }
+
+  .btn-mission {
+    display: inline-block;
+    background: $brand-gold;
+    color: #000;
+    border-radius: 50px;
+    font-weight: 600;
+    font-size: 0.8rem;
+    padding: 0.35rem 1rem;
+    text-decoration: none;
+    transition: opacity 0.2s;
+
+    &:hover {
+      opacity: 0.85;
+      color: #000;
+    }
+  }
+}
+
+// ── Gallery / Children section ──
+.gallery-section {
+  position: relative;
+  background: #faf5eb;
+  overflow: hidden;
+
+  .gallery-heading {
+    font-family: $font-family-sans-serif;
+    font-weight: 500;
+    font-size: 2.5rem;
+    color: $brand-dark;
+    line-height: 1.2;
+    margin-bottom: 0.75rem;
+
+    @media (max-width: 768px) {
+      font-size: 1.6rem;
+    }
+  }
+
+  .gallery-subtitle {
+    font-size: 0.88rem;
+    color: $brand-text-light;
+    max-width: 620px;
+    margin: 0 auto;
+    line-height: 1.7;
+  }
+
+  // ── Year scroller ──
+  .year-scroller {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+  }
+
+  .year-scroll-btn {
+    flex-shrink: 0;
+    width: 32px;
+    height: 32px;
+    border: 2px solid #4a90d9;
+    border-radius: 4px;
+    background: #fff;
+    color: #4a90d9;
+    font-size: 1.2rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    transition: background 0.2s;
+
+    &:hover {
+      background: #4a90d9;
+      color: #fff;
+    }
+  }
+
+  .year-track {
+    flex: 1;
+    overflow-x: auto;
+    position: relative;
+    scrollbar-width: none;
+
+    &::-webkit-scrollbar {
+      display: none;
+    }
+  }
+
+  .year-line {
+    position: absolute;
+    top: 50%;
+    left: 0;
+    right: 0;
+    height: 2px;
+    background: $brand-gold;
+    transform: translateY(-50%);
+    z-index: 0;
+  }
+
+  .year-buttons {
+    display: flex;
+    justify-content: space-between;
+    position: relative;
+    z-index: 1;
+    padding: 0.5rem 0;
+    width: 100%;
+  }
+
+  .year-btn {
+    flex-shrink: 0;
+    min-width: 72px;
+    padding: 0.4rem 0.75rem;
+    border: none;
+    border-radius: 50px;
+    background: #fff;
+    color: $brand-text-light;
+    font-weight: 500;
+    font-size: 0.9rem;
+    cursor: pointer;
+    transition: all 0.2s;
+    position: relative;
+
+    &:hover {
+      color: $brand-dark;
+    }
+
+    &.active {
+      background: $brand-gold;
+      color: #000;
+      font-weight: 700;
+      box-shadow: 0 2px 8px rgba(245, 166, 35, 0.4);
+    }
+  }
+
+  // ── Child cards ──
+  .child-card {
+    background: #fff;
+    border-radius: 12px;
+    overflow: hidden;
+    box-shadow: 0 2px 12px rgba(0, 0, 0, 0.06);
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+  }
+
+  .child-card-img {
+    position: relative;
+    width: 100%;
+    aspect-ratio: 4 / 3;
+    overflow: hidden;
+    background: #e5e7eb;
+
+    img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+  }
+
+  .child-card-img-placeholder {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: #d1d5db;
+    color: #9ca3af;
+    font-size: 1rem;
+    font-weight: 500;
+  }
+
+  .quilt-theme-tag {
+    position: absolute;
+    bottom: 10px;
+    left: 10px;
+    background: $brand-dark;
+    color: #fff;
+    font-size: 0.72rem;
+    font-weight: 600;
+    padding: 0.25rem 0.65rem;
+    border-radius: 4px;
+  }
+
+  .child-card-body {
+    padding: 1rem 1.25rem 1.25rem;
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+  }
+
+  .child-card-name {
+    font-family: $font-family-sans-serif;
+    font-weight: 600;
+    font-size: 1rem;
+    color: $brand-dark;
+    margin-bottom: 0.5rem;
+  }
+
+  .child-card-label {
+    font-weight: 600;
+    font-size: 0.8rem;
+    color: $brand-dark;
+    margin-bottom: 0.15rem;
+  }
+
+  .child-card-value {
+    font-size: 0.8rem;
+    color: $brand-text-light;
+    margin-bottom: 0.5rem;
+    line-height: 1.5;
+  }
+
+  .child-card-dates {
+    display: flex;
+    gap: 1.5rem;
+    margin-bottom: 0.75rem;
+    margin-top: auto;
+  }
+
+  .date-icon {
+    font-size: 0.75rem;
+  }
+
+  .btn-see-more {
+    display: block;
+    text-align: center;
+    background: $brand-dark;
+    color: #fff;
+    border-radius: 50px;
+    font-weight: 600;
+    font-size: 0.8rem;
+    padding: 0.45rem 1rem;
+    text-decoration: none;
+    transition: opacity 0.2s;
+
+    &:hover {
+      opacity: 0.85;
+      color: #fff;
+    }
+  }
+
+  // ── See all button ──
+  .btn-see-all {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.4rem;
+    background: $brand-gold;
+    color: #000;
+    border: 1.5px solid #000;
+    border-radius: 50px;
+    font-weight: 600;
+    font-size: 0.9rem;
+    padding: 0.55rem 1.5rem;
+    text-decoration: none;
+    transition: opacity 0.2s;
+
+    &:hover {
+      opacity: 0.85;
+      color: #000;
+    }
+  }
+}
+
+// ── Parents Guidelines section ──
+.parents-section {
+  position: relative;
+  background: #ffffff;
+  overflow: hidden;
+
+  .parents-heading {
+    font-family: $font-family-sans-serif;
+    font-weight: 700;
+    font-size: 2.6rem;
+    color: $brand-dark;
+    margin-bottom: 1.25rem;
+
+    @media (max-width: 768px) {
+      font-size: 1.8rem;
+    }
+  }
+
+  .parents-text {
+    font-size: 0.9rem;
+    color: $brand-text-light;
+    line-height: 1.75;
+    margin-bottom: 1.25rem;
+    max-width: 480px;
+  }
+
+  .btn-parents {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.4rem;
+    background: $brand-gold;
+    color: #000;
+    border: 1.5px solid #000;
+    border-radius: 50px;
+    font-family: $font-family-heading;
+    font-weight: 600;
+    font-size: 0.85rem;
+    padding: 0.55rem 1.4rem;
+    text-decoration: none;
+    transition: opacity 0.2s;
+
+    &:hover {
+      opacity: 0.85;
+      color: #000;
+    }
+  }
+
+  .parents-image-wrapper {
+    position: relative;
+    display: flex;
+    justify-content: center;
+  }
+
+  .parents-heart-accent {
+    position: absolute;
+    top: -30px;
+    right: 10px;
+    width: 90px;
+    height: auto;
+    z-index: 2;
+    pointer-events: none;
+    mix-blend-mode: multiply;
+
+    @media (max-width: 768px) {
+      width: 60px;
+      top: -20px;
+      right: 20px;
+    }
+  }
+
+  .parents-img {
+    width: 100%;
+    max-width: 500px;
+    border-radius: 8px;
+    object-fit: cover;
+    position: relative;
+    z-index: 1;
+  }
+}
+
+// ── Testimonials section ──
+.testimonials-section {
+  position: relative;
+  background: #faf5eb;
+  overflow: hidden;
+
+  .testimonials-heading {
+    font-family: $font-family-sans-serif;
+    font-weight: 500;
+    font-size: 2.6rem;
+    color: $brand-dark;
+    margin-bottom: 0.5rem;
+
+    @media (max-width: 768px) {
+      font-size: 1.8rem;
+    }
+  }
+
+  .testimonials-subtitle {
+    font-size: 0.88rem;
+    color: $brand-text-light;
+    max-width: 560px;
+    margin: 0 auto;
+    line-height: 1.7;
+  }
+
+  // ── Image side ──
+  .testimonial-image-wrapper {
+    position: relative;
+    display: inline-block;
+  }
+
+  .testimonial-quote-badge {
+    position: absolute;
+    top: 12px;
+    left: 12px;
+    width: 42px;
+    height: 42px;
+    background: $brand-gold;
+    color: #fff;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.1rem;
+    z-index: 2;
+    line-height: 1;
+  }
+
+  .testimonial-img {
+    width: 100%;
+    max-width: 400px;
+    border-radius: 10px;
+    object-fit: cover;
+    display: block;
+  }
+
+  // ── Quote card ──
+  .testimonial-card {
+    border: 1px solid #d1d5db;
+    border-radius: 12px;
+    padding: 1.75rem 2rem;
+    background: #fff;
+  }
+
+  .testimonial-category {
+    font-family: $font-family-sans-serif;
+    font-weight: 500;
+    font-size: 1.35rem;
+    color: #2a9d8f;
+    margin-bottom: 0.5rem;
+  }
+
+  .testimonial-divider {
+    border: none;
+    border-top: 1px solid #e5e7eb;
+    margin: 0.75rem 0 1rem;
+  }
+
+  .testimonial-quote {
+    font-size: 0.88rem;
+    color: $brand-text-light;
+    line-height: 1.75;
+    margin-bottom: 1.25rem;
+  }
+
+  .testimonial-author {
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+  }
+
+  .testimonial-author-badge {
+    width: 40px;
+    height: 40px;
+    background: $brand-dark;
+    color: #fff;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1rem;
+    flex-shrink: 0;
+    line-height: 1;
+  }
+
+  .testimonial-name {
+    font-family: $font-family-heading;
+    font-weight: 700;
+    font-size: 0.95rem;
+    color: $brand-dark;
+  }
+
+  .testimonial-role {
+    font-family: $font-family-heading;
+    font-weight: 500;
+    font-size: 0.88rem;
+    color: $brand-text-light;
+  }
+
+  // ── Nav arrows ──
+  .testimonial-nav {
+    display: flex;
+    justify-content: flex-end;
+    gap: 0.5rem;
+    margin-top: 1rem;
+  }
+
+  .testimonial-nav-btn {
+    width: 42px;
+    height: 42px;
+    border: 1px solid #d1d5db;
+    border-radius: 50%;
+    background: #fff;
+    color: $brand-dark;
+    font-size: 1.4rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    transition: all 0.2s;
+
+    &:hover {
+      background: $brand-dark;
+      color: #fff;
+      border-color: $brand-dark;
+    }
+  }
+}
+
+// ── Contact / Warm & Supportive section ──
+.contact-section {
+  position: relative;
+  background: #ffffff;
+  overflow: hidden;
+
+  .contact-heading {
+    font-family: $font-family-sans-serif;
+    font-weight: 700;
+    font-size: 2.6rem;
+    color: $brand-dark;
+    margin-bottom: 0.5rem;
+
+    @media (max-width: 768px) {
+      font-size: 1.8rem;
+    }
+  }
+
+  .contact-intro {
+    font-size: 0.9rem;
+    color: $brand-text-light;
+    line-height: 1.7;
+    margin-bottom: 1.5rem;
+    max-width: 440px;
+  }
+
+  .contact-form {
+    max-width: 440px;
+  }
+
+  .contact-field {
+    margin-bottom: 1rem;
+  }
+
+  .contact-label {
+    display: block;
+    font-size: 0.82rem;
+    color: $brand-text-light;
+    margin-bottom: 0.3rem;
+  }
+
+  .contact-input {
+    width: 100%;
+    padding: 0.6rem 1rem;
+    border: none;
+    border-radius: 50px;
+    background: $brand-dark;
+    color: #fff;
+    font-size: 0.9rem;
+    outline: none;
+
+    &::placeholder {
+      color: #9ca3af;
+    }
+
+    &:focus {
+      box-shadow: 0 0 0 2px $brand-gold;
+    }
+  }
+
+  .contact-textarea {
+    width: 100%;
+    padding: 0.75rem 1rem;
+    border: none;
+    border-radius: 12px;
+    background: #3a3a4a;
+    color: #fff;
+    font-size: 0.9rem;
+    resize: vertical;
+    outline: none;
+    font-family: inherit;
+
+    &::placeholder {
+      color: #9ca3af;
+    }
+
+    &:focus {
+      box-shadow: 0 0 0 2px $brand-gold;
+    }
+  }
+
+  .btn-contact-submit {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.4rem;
+    background: $brand-gold;
+    color: #000;
+    border: 1.5px solid #000;
+    border-radius: 50px;
+    font-family: $font-family-heading;
+    font-weight: 600;
+    font-size: 0.85rem;
+    padding: 0.55rem 1.4rem;
+    cursor: pointer;
+    transition: opacity 0.2s;
+    margin-top: 0.5rem;
+
+    &:hover {
+      opacity: 0.85;
+    }
+  }
+
+  .contact-image-wrapper {
+    position: relative;
+    display: flex;
+    justify-content: center;
+  }
+
+  .contact-heart-accent {
+    position: absolute;
+    top: -30px;
+    right: 30px;
+    width: 90px;
+    height: auto;
+    z-index: 2;
+    pointer-events: none;
+    mix-blend-mode: multiply;
+
+    @media (max-width: 768px) {
+      width: 60px;
+      top: -20px;
+      right: 20px;
+    }
+  }
+
+  .contact-img {
+    width: 100%;
+    max-width: 460px;
+    border-radius: 8px;
+    object-fit: cover;
+    position: relative;
+    z-index: 1;
+  }
+}
+
+// ── Footer ──
+.site-footer {
+  // ── CTA banner ──
+  .footer-cta {
+    background: #4a4a4a;
+  }
+
+  .footer-cta-heading {
+    font-family: $font-family-sans-serif;
+    font-weight: 500;
+    font-size: 1.75rem;
+    color: #fff;
+    margin-bottom: 0.4rem;
+
+    @media (max-width: 768px) {
+      font-size: 1.3rem;
+    }
+  }
+
+  .footer-cta-text {
+    font-size: 0.85rem;
+    color: #d1d5db;
+    max-width: 480px;
+    margin: 0 auto 1.25rem;
+    line-height: 1.6;
+  }
+
+  .footer-email-form {
+    display: inline-flex;
+    align-items: center;
+    background: $brand-dark;
+    border-radius: 50px;
+    padding: 0.3rem 0.3rem 0.3rem 1.25rem;
+    max-width: 400px;
+    width: 100%;
+  }
+
+  .footer-email-input {
+    flex: 1;
+    border: none;
+    background: transparent;
+    color: #fff;
+    font-size: 0.88rem;
+    outline: none;
+    min-width: 0;
+
+    &::placeholder {
+      color: #9ca3af;
+    }
+  }
+
+  .footer-email-btn {
+    flex-shrink: 0;
+    width: 38px;
+    height: 38px;
+    border: none;
+    border-radius: 50%;
+    background: $brand-gold;
+    color: #000;
+    font-size: 1.1rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    transition: opacity 0.2s;
+
+    &:hover {
+      opacity: 0.85;
+    }
+  }
+
+  // ── Main footer ──
+  .footer-main {
+    background: #2a2a2a;
+  }
+
+  .footer-brand {
+    font-family: $font-family-sans-serif;
+    font-weight: 700;
+    font-size: 1.5rem;
+    color: $brand-gold;
+    margin-bottom: 0.75rem;
+  }
+
+  .footer-brand-text {
+    font-size: 0.85rem;
+    color: #d1d5db;
+    line-height: 1.65;
+    margin-bottom: 1rem;
+
+    .text-gold {
+      color: $brand-gold;
+      font-weight: 700;
+    }
+  }
+
+  .footer-fb-link {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    color: $brand-gold;
+    font-size: 0.85rem;
+    text-decoration: none;
+    transition: opacity 0.2s;
+
+    &:hover {
+      opacity: 0.8;
+      color: $brand-gold;
+    }
+  }
+
+  .footer-fb-icon {
+    width: 28px;
+    height: 28px;
+    background: $brand-gold;
+    color: #fff;
+    border-radius: 6px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: 700;
+    font-size: 0.9rem;
+  }
+
+  .footer-links-heading {
+    font-family: $font-family-sans-serif;
+    font-weight: 600;
+    font-size: 1.1rem;
+    color: #fff;
+    margin-bottom: 0.75rem;
+  }
+
+  .footer-links {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+
+    li {
+      margin-bottom: 0.5rem;
+    }
+
+    a {
+      color: #d1d5db;
+      font-size: 0.88rem;
+      text-decoration: none;
+      transition: color 0.2s;
+
+      &:hover {
+        color: $brand-gold;
+      }
+    }
+  }
+
+  .footer-divider {
+    border-color: #4a4a4a;
+    margin: 1.5rem 0 1rem;
+  }
+
+  .footer-copyright {
+    text-align: center;
+    font-size: 0.8rem;
+    color: #9ca3af;
+    margin: 0;
+  }
+}
