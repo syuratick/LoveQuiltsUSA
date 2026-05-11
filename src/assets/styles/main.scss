@@ -1258,3 +1258,492 @@ body {
     margin: 0;
   }
 }
+
+// ── Child Detail Page ──
+.child-detail-page {
+  .child-detail-banner {
+    position: relative;
+    border: 4px solid #4a90d9;
+    border-radius: 0 0 8px 8px;
+    overflow: hidden;
+    display: flex;
+    align-items: flex-end;
+  }
+
+  .child-detail-banner-img {
+    width: 100%;
+    height: auto;
+    display: block;
+  }
+
+  .child-detail-banner-overlay {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    z-index: 1;
+    width: 100%;
+    padding: 1.5rem 2rem;
+    background: linear-gradient(transparent, rgba(0, 0, 0, 0.6));
+  }
+
+  .child-detail-banner-title {
+    font-family: $font-family-sans-serif;
+    font-weight: 500;
+    font-size: 1.75rem;
+    color: #fff;
+    margin: 0;
+
+    @media (max-width: 768px) {
+      font-size: 1.3rem;
+    }
+  }
+
+  .child-detail-card {
+    background: #faf5eb;
+    border-radius: 12px;
+    padding: 2rem;
+    margin-bottom: 2rem;
+    box-shadow: 0 2px 12px rgba(0, 0, 0, 0.05);
+  }
+
+  .child-detail-age-badge {
+    display: inline-block;
+    background: $brand-gold;
+    color: #000;
+    font-weight: 700;
+    font-size: 0.75rem;
+    padding: 0.3rem 0.8rem;
+    border-radius: 50px;
+    margin-bottom: 0.75rem;
+  }
+
+  .child-detail-name {
+    font-family: $font-family-sans-serif;
+    font-weight: 700;
+    font-size: 1.8rem;
+    color: $brand-dark;
+    margin-bottom: 0.5rem;
+
+    @media (max-width: 768px) {
+      font-size: 1.4rem;
+    }
+  }
+
+  .child-detail-meta {
+    font-size: 0.88rem;
+    color: $brand-text-light;
+    margin-bottom: 0.35rem;
+
+    .meta-label {
+      color: $brand-gold;
+      font-weight: 600;
+    }
+  }
+
+  .child-detail-dates {
+    display: flex;
+    gap: 2rem;
+    margin: 1rem 0;
+  }
+
+  .child-detail-date-label {
+    font-weight: 700;
+    font-size: 0.82rem;
+    color: $brand-dark;
+    margin-bottom: 0.15rem;
+  }
+
+  .child-detail-date-value {
+    font-size: 0.82rem;
+    color: $brand-gold;
+  }
+
+  .child-detail-actions {
+    display: flex;
+    gap: 0.75rem;
+    flex-wrap: wrap;
+    margin-top: 1.25rem;
+  }
+
+  .btn-detail-primary {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.3rem;
+    background: $brand-gold;
+    color: #000;
+    border: 1.5px solid #000;
+    border-radius: 50px;
+    font-weight: 600;
+    font-size: 0.82rem;
+    padding: 0.45rem 1.2rem;
+    text-decoration: none;
+    transition: opacity 0.2s;
+
+    &:hover {
+      opacity: 0.85;
+      color: #000;
+    }
+  }
+
+  .btn-detail-secondary {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.3rem;
+    background: $brand-dark;
+    color: #fff;
+    border: 1.5px solid #000;
+    border-radius: 50px;
+    font-weight: 600;
+    font-size: 0.82rem;
+    padding: 0.45rem 1.2rem;
+    text-decoration: none;
+    transition: opacity 0.2s;
+
+    &:hover {
+      opacity: 0.85;
+      color: #fff;
+    }
+  }
+
+  .child-detail-images {
+    width: 100%;
+    max-width: 320px;
+  }
+
+  .child-detail-img {
+    width: 100%;
+    border-radius: 8px;
+    object-fit: cover;
+  }
+
+  .child-detail-img-placeholder {
+    width: 100%;
+    aspect-ratio: 1;
+    background: #e5e7eb;
+    border-radius: 8px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #9ca3af;
+    font-size: 0.9rem;
+    text-align: center;
+    padding: 1rem;
+  }
+
+  // Story section
+  .child-detail-story {
+    background: #faf5eb;
+    border-radius: 12px;
+    padding: 2rem;
+    box-shadow: 0 2px 12px rgba(0, 0, 0, 0.05);
+  }
+
+  .child-detail-story-heading {
+    font-family: $font-family-sans-serif;
+    font-weight: 700;
+    font-size: 1.3rem;
+    color: $brand-dark;
+    margin-bottom: 1rem;
+  }
+
+  .child-detail-story-text {
+    font-size: 0.9rem;
+    color: $brand-text-light;
+    line-height: 1.8;
+
+    p {
+      margin-bottom: 1rem;
+    }
+  }
+
+  .btn-back-home {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.3rem;
+    color: $brand-dark;
+    font-weight: 600;
+    font-size: 0.9rem;
+    text-decoration: none;
+    transition: color 0.2s;
+
+    &:hover {
+      color: $brand-gold;
+    }
+  }
+}
+
+// ── About Page ──
+.about-page {
+  background: #fff;
+
+  .about-content {
+    max-width: 700px;
+    margin: 0 auto;
+  }
+
+  .about-heading {
+    font-family: $font-family-sans-serif;
+    font-weight: 700;
+    font-size: 2.5rem;
+    color: $brand-dark;
+    margin-bottom: 1.5rem;
+
+    @media (max-width: 768px) {
+      font-size: 1.8rem;
+    }
+  }
+
+  .about-tagline {
+    font-size: 1.1rem;
+    color: $brand-dark;
+    margin-bottom: 2rem;
+  }
+
+  .about-text {
+    font-size: 1rem;
+    color: $brand-text;
+    line-height: 1.8;
+    margin-bottom: 1.5rem;
+  }
+
+  .about-email {
+    color: $brand-dark;
+    font-weight: 600;
+    text-decoration: underline;
+
+    &:hover {
+      color: $brand-gold;
+    }
+  }
+
+  .about-thanks {
+    font-size: 1.1rem;
+    color: $brand-dark;
+    font-weight: 600;
+    margin-top: 2rem;
+  }
+}
+
+// ── Gallery Page ──
+.gallery-page {
+  background: #faf5eb;
+
+  .gallery-page-banner {
+    position: relative;
+    border: 4px solid #4a90d9;
+    border-radius: 0 0 8px 8px;
+    overflow: hidden;
+  }
+
+  .gallery-page-banner-img {
+    width: 100%;
+    height: auto;
+    display: block;
+  }
+
+  .gallery-page-banner-overlay {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    padding: 1.5rem 2rem;
+    background: linear-gradient(transparent, rgba(0, 0, 0, 0.6));
+  }
+
+  .gallery-page-banner-title {
+    font-family: $font-family-sans-serif;
+    font-weight: 500;
+    font-size: 1.75rem;
+    color: #fff;
+    margin: 0;
+
+    @media (max-width: 768px) {
+      font-size: 1.2rem;
+    }
+  }
+
+  // Notice bar
+  .gallery-page-notice {
+    background: $brand-dark;
+    text-align: center;
+    padding: 1rem 1.5rem;
+  }
+
+  .gallery-page-notice-title {
+    color: #fff;
+    font-weight: 600;
+    font-size: 0.95rem;
+    margin-bottom: 0.25rem;
+  }
+
+  .gallery-page-notice-sub {
+    color: #9ca3af;
+    font-size: 0.8rem;
+    margin: 0;
+  }
+
+  // Cards
+  .gallery-card {
+    background: #fff;
+    border-radius: 12px;
+    overflow: hidden;
+    box-shadow: 0 2px 12px rgba(0, 0, 0, 0.06);
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+  }
+
+  .gallery-card-img {
+    position: relative;
+    width: 100%;
+    aspect-ratio: 4 / 3;
+    overflow: hidden;
+    background: #e5e7eb;
+
+    img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+  }
+
+  .gallery-card-img-placeholder {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: #d1d5db;
+    color: #9ca3af;
+    font-size: 1rem;
+    font-weight: 500;
+  }
+
+  .gallery-card-theme {
+    position: absolute;
+    bottom: 10px;
+    left: 10px;
+    background: #2a9d8f;
+    color: #fff;
+    font-size: 0.72rem;
+    font-weight: 600;
+    padding: 0.25rem 0.65rem;
+    border-radius: 4px;
+  }
+
+  .gallery-card-body {
+    padding: 1rem 1.25rem 1.25rem;
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+  }
+
+  .gallery-card-name {
+    font-family: $font-family-sans-serif;
+    font-weight: 600;
+    font-size: 1rem;
+    color: $brand-dark;
+    margin-bottom: 0.5rem;
+  }
+
+  .gallery-card-label {
+    font-weight: 600;
+    font-size: 0.8rem;
+    color: $brand-dark;
+    margin-bottom: 0.15rem;
+  }
+
+  .gallery-card-value {
+    font-size: 0.8rem;
+    color: $brand-text-light;
+    margin-bottom: 0.5rem;
+    line-height: 1.5;
+  }
+
+  .gallery-card-dates {
+    display: flex;
+    gap: 1.5rem;
+    margin-bottom: 0.75rem;
+    margin-top: auto;
+  }
+
+  .gallery-card-date {
+    font-size: 0.8rem;
+    color: $brand-gold;
+  }
+
+  .btn-gallery-see-more {
+    display: block;
+    text-align: center;
+    background: $brand-dark;
+    color: #fff;
+    border-radius: 50px;
+    font-weight: 600;
+    font-size: 0.8rem;
+    padding: 0.5rem 1rem;
+    text-decoration: none;
+    transition: opacity 0.2s;
+
+    &:hover {
+      opacity: 0.85;
+      color: #fff;
+    }
+  }
+}
+
+// ── Gallery Past Years section ──
+.gallery-past-years {
+  background: #faf5eb;
+  text-align: center;
+
+  .gallery-past-years-heading {
+    font-family: $font-family-sans-serif;
+    font-weight: 700;
+    font-size: 1.75rem;
+    color: $brand-dark;
+    margin-bottom: 0.5rem;
+
+    @media (max-width: 768px) {
+      font-size: 1.3rem;
+    }
+  }
+
+  .gallery-past-years-text {
+    font-size: 0.88rem;
+    color: $brand-text-light;
+    max-width: 600px;
+    margin: 0 auto 1.5rem;
+    line-height: 1.7;
+  }
+
+  .gallery-year-grid {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 0.75rem;
+    max-width: 700px;
+    margin: 0 auto;
+  }
+
+  .gallery-year-btn {
+    min-width: 100px;
+    padding: 0.55rem 1.25rem;
+    border: none;
+    border-radius: 50px;
+    background: $brand-dark;
+    color: #fff;
+    font-weight: 600;
+    font-size: 0.9rem;
+    cursor: pointer;
+    transition: all 0.2s;
+
+    &:hover {
+      background: lighten($brand-dark, 15%);
+    }
+
+    &.active {
+      background: $brand-gold;
+      color: #000;
+    }
+  }
+}
