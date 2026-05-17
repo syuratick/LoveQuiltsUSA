@@ -1,4 +1,5 @@
 import { useState } from 'react';
+import { Link } from 'react-router-dom';
 
 const Footer = () => {
   const [email, setEmail] = useState('');
@@ -65,9 +66,9 @@ const Footer = () => {
             <div className="col-lg-4 col-md-6 mb-4 mb-lg-0">
               <h4 className="footer-links-heading">Links</h4>
               <ul className="footer-links">
-                <li><a href="#signup">Sign up</a></li>
-                <li><a href="#guidelines">Guidelines for Parents</a></li>
-                <li><a href="#stitchers">Directions for Stitchers</a></li>
+                <li><Link to="/signup">Sign up</Link></li>
+                <li><Link to="/guidelines">Guidelines for Parents</Link></li>
+                <li><Link to="/directions">Directions for Stitchers</Link></li>
               </ul>
             </div>
 
@@ -77,7 +78,7 @@ const Footer = () => {
               <ul className="footer-links">
                 <li><a href="#photos">Photo Site</a></li>
                 <li><a href="#email">Email Us</a></li>
-                <li><a href="#mailing">Mailing &amp; Donations</a></li>
+                <li><Link to="/mailing">Mailing &amp; Donations</Link></li>
               </ul>
             </div>
           </div>

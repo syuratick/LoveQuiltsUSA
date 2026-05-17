@@ -1,19 +1,21 @@
+import { Link } from 'react-router-dom';
+
 const Header = () => {
   const menuItems = [
-    { label: 'Home', href: '#' },
-    { label: 'About Us', href: '#about' },
-    { label: 'Get Involved', href: '#involved', hasDropdown: true },
-    { label: 'Gallery', href: '#gallery' },
-    { label: 'Contact Us', href: '#contact' },
+    { label: 'Home', to: '/' },
+    { label: 'About Us', to: '/about' },
+    { label: 'Get Involved', to: '/involved', hasDropdown: true },
+    { label: 'Gallery', to: '/gallery' },
+    { label: 'Contact Us', to: '/contact' },
   ];
 
   return (
     <header className="site-header">
       <nav className="navbar navbar-expand-lg py-2">
         <div className="container">
-          <a className="navbar-brand" href="#">
+          <Link className="navbar-brand" to="/">
             Love Quilts USA
-          </a>
+          </Link>
 
           <button
             className="navbar-toggler"
@@ -31,19 +33,19 @@ const Header = () => {
             <ul className="navbar-nav mx-auto mb-2 mb-lg-0">
               {menuItems.map((item) => (
                 <li className="nav-item" key={item.label}>
-                  <a className="nav-link" href={item.href}>
+                  <Link className="nav-link" to={item.to}>
                     {item.label}
                     {item.hasDropdown && (
                       <span className="ms-1">&#9662;</span>
                     )}
-                  </a>
+                  </Link>
                 </li>
               ))}
             </ul>
 
-            <a href="#request" className="btn-request">
+            <Link to="/request-quilt" className="btn-request">
               Request A Quilt <span>&#9825;</span>
-            </a>
+            </Link>
           </div>
         </div>
       </nav>
