@@ -1,5 +1,6 @@
 import parentsSewing from '../assets/images/parents-sewing.svg';
 import loveHeart from '../assets/images/love-heart.svg';
+import { Link } from 'react-router-dom';
 
 const ParentsGuidelines = () => {
   return (
@@ -29,9 +30,9 @@ const ParentsGuidelines = () => {
               get a quilt depending on the child's illness and theme choice.
             </p>
 
-            <a href="#parents-info" className="btn-parents">
+            <Link to="/guidelines" className="btn-parents">
               See More Information for Parents &rarr;
-            </a>
+            </Link>
           </div>
 
           {/* Right – image with heart accent */}

@@ -1,88 +1,36 @@
-import { useState, useRef } from 'react';
+import { useState, useRef, useEffect } from 'react';
+import { Link } from 'react-router-dom';
+import { getRecipients, type Recipient } from '../util/LoveQuiltAPI';
+import { years } from '../util/Common';
 
-interface ChildCard {
-  id: string;
-  name: string;
-  location: string;
-  quiltTheme: string;
-  diagnosis: string;
-  dateOfBirth: string;
-  dueBirth: string;
-  imageUrl?: string;
-}
-
-// Placeholder data – will be replaced with DB fetch
-const sampleData: Record<number, ChildCard[]> = {
-  2022: [
-    {
-      id: '1',
-      name: 'Kayli R.',
-      location: 'Ohio',
-      quiltTheme: 'Paw Patrol',
-      diagnosis:
-        'Double outlet right ventricle, Ebsteins Anomaly, Tricuspid Atresia, Pulmonary vein stenosis',
-      dateOfBirth: 'June 22, 2017',
-      dueBirth: 'March 1, 2022',
-    },
-    {
-      id: '2',
-      name: 'Juliana M.',
-      location: 'New Hampshire',
-      quiltTheme: 'Moon & Stars',
-      diagnosis: 'Dysphagiay & Hypotonia',
-      dateOfBirth: 'June 1, 2018',
-      dueBirth: 'March 1, 2022',
-    },
-    {
-      id: '3',
-      name: 'Ellie P.',
-      location: 'New Jersey',
-      quiltTheme: 'Moon & Stars',
-      diagnosis: 'Dysphagiay & Hypotonia',
-      dateOfBirth: 'June 1, 2018',
-      dueBirth: 'March 1, 2022',
-    },
-    {
-      id: '4',
-      name: 'Colton H.',
-      location: 'South Carolina',
-      quiltTheme: 'Red, White & Blue',
-      diagnosis: 'ALL',
-      dateOfBirth: 'December 22, 2016',
-      dueBirth: 'March 1, 2022',
-    },
-    {
-      id: '5',
-      name: 'Indie F.',
-      location: 'Oregon',
-      quiltTheme: 'B-Cell ALL',
-      diagnosis: 'Realistic Exotic Birds',
-      dateOfBirth: 'May 22, 2017',
-      dueBirth: 'March 1, 2022',
-    },
-    {
-      id: '6',
-      name: 'Elijah S.',
-      location: 'Texas',
-      quiltTheme: 'Mickey Mouse Clubhouse',
-      diagnosis: 'Hypoplastic Left Heart Syndrome',
-      dateOfBirth: 'January 11, 2019',
-      dueBirth: 'March 1, 2022',
-    },
-  ],
-};
-
-const years = [2016, 2017, 2018, 2019, 2020, 2021, 2022, 2023, 2024, 2025];
 
 const GallerySection = () => {
-  const [activeYear, setActiveYear] = useState(2022);
+  const [activeYear, setActiveYear] = useState(2026);
+  const [recipients, setRecipients] = useState<Recipient[]>([]);
+  const [loading, setLoading] = useState(false);
+  const [error, setError] = useState<string | null>(null);
   const scrollRef = useRef<HTMLDivElement>(null);
 
-  const children = sampleData[activeYear] ?? [];
+  const fetchRecipients = async (year: number) => {
+    setLoading(true);
+    setError(null);
+    try {
+      const data = await getRecipients(year);
+      setRecipients(data);
+    } catch (err) {
+      setError(err instanceof Error ? err.message : 'Something went wrong');
+      setRecipients([]);
+    } finally {
+      setLoading(false);
+    }
+  };
+
+  useEffect(() => {
+    fetchRecipients(activeYear);
+  }, [activeYear]);
 
   const handleYearClick = (year: number) => {
     setActiveYear(year);
-    // TODO: fetch children from database by year
   };
 
   const scrollYears = (direction: 'left' | 'right') => {
@@ -146,62 +94,84 @@ const GallerySection = () => {
           </button>
         </div>
 
+        {/* Loading state */}
+        {loading && (
+          <div className="text-center py-5">
+            <p className="text-muted">Loading...</p>
+          </div>
+        )}
+
+        {/* Error state */}
+        {error && (
+          <div className="text-center py-5">
+            <p className="text-danger">{error}</p>
+          </div>
+        )}
+
         {/* Children grid */}
-        {children.length > 0 ? (
+        {!loading && !error && recipients.length > 0 && (
           <div className="row g-4">
-            {children.map((child) => (
+            {recipients.map((child) => (
               <div className="col-lg-4 col-md-6" key={child.id}>
                 <div className="child-card">
                   {/* Image placeholder – will be replaced with DB images */}
                   <div className="child-card-img">
                     {child.imageUrl ? (
-                      <img src={child.imageUrl} alt={`${child.name} from ${child.location}`} />
+                      <img
+                        src={child.imageUrl}
+                        alt={`${child.name}`}
+                      />
                     ) : (
                       <div className="child-card-img-placeholder">
                         <span>Photo</span>
                       </div>
                     )}
-                    <span className="quilt-theme-tag">{child.quiltTheme}</span>
+                    <span className="quilt-theme-tag">{child.theme}</span>
                   </div>
 
                   <div className="child-card-body">
-                    <h4 className="child-card-name">
-                      {child.name} {child.location}
-                    </h4>
+                    <h4 className="child-card-name">{child.name}</h4>
 
+                   {/*  <p className="child-card-label">Age:</p>
+                    <p className="child-card-value">{child.age}</p>
+ */}
                     <p className="child-card-label">Diagnosis:</p>
                     <p className="child-card-value">{child.diagnosis}</p>
 
+                    {/* <p className="child-card-label">Color:</p>
+                    <p className="child-card-value">{child.color}</p> */}
+
                     <div className="child-card-dates">
                       <div>
-                        <p className="child-card-label">Date Of Birth</p>
+                        <p className="child-card-label">Due Date</p>
                         <p className="child-card-value">
                           <span className="date-icon">&#128197;</span>{' '}
-                          {child.dateOfBirth}
+                          {child.dueDate}
                         </p>
                       </div>
                       <div>
-                        <p className="child-card-label">Due Birth</p>
+                        <p className="child-card-label">Signups</p>
                         <p className="child-card-value">
-                          <span className="date-icon">&#128197;</span>{' '}
-                          {child.dueBirth}
+                          {child.numberOfSignups}
                         </p>
                       </div>
                     </div>
 
-                    <a href={`#child-${child.id}`} className="btn-see-more">
+                    <Link to={`/child/${activeYear}/${child.id}`} className="btn-see-more">
                       See more &rarr;
-                    </a>
+                    </Link>
                   </div>
                 </div>
               </div>
             ))}
           </div>
-        ) : (
+        )}
+
+        {/* Empty state */}
+        {!loading && !error && recipients.length === 0 && (
           <div className="text-center py-5">
             <p className="text-muted">
-              No children found for {activeYear}. Data will be loaded from the
-              database.
+              No children found for {activeYear}.
             </p>
           </div>
         )}
