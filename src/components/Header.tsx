@@ -43,7 +43,7 @@ const Header = () => {
               ))}
             </ul>
 
-            <Link to="/#request" className="btn-request">
+            <Link to="/request-quilt" className="btn-request">
               Request A Quilt <span>&#9825;</span>
             </Link>
           </div>

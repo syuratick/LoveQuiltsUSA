@@ -2,6 +2,7 @@ import heroMain from '../assets/images/hero-main.svg';
 import heroSecondary from '../assets/images/hero-secondary.svg';
 import accentTop from '../assets/images/hero-accent-top.svg';
 import accentBottom from '../assets/images/hero-accent-bottom.svg';
+import { Link } from 'react-router-dom';
 
 const HomepageTop = () => {
   return (
@@ -34,12 +35,12 @@ const HomepageTop = () => {
             </h1>
 
             <div className="hero-actions">
-              <a href="#request" className="btn-hero-primary">
+              <Link to="/request-quilt"  className="btn-hero-primary">
                 Request a Quilt &rarr;
-              </a>
-              <a href="#volunteer" className="btn-hero-secondary">
+              </Link>
+              <Link to="/signup" className="btn-hero-secondary">
                 Become A Volunteer
-              </a>
+              </Link>
             </div>
 
             <div className="d-flex align-items-start gap-3 mt-3">
