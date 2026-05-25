@@ -49,11 +49,19 @@ async function apiFetch<T>(endpoint: string, params?: Record<string, string>): P
 
 // ─── API Endpoints ───
 
+// TODO: Remove this test URL once imageUrl comes from the API
+const TEST_IMAGE_URL = 'https://res.cloudinary.com/dkncqyeo7/image/upload/Wynree_wuy9n8.png';
+
 /**
  * Fetch recipients/children by year
  */
 export async function getRecipients(year: number): Promise<Recipient[]> {
-  return apiFetch<Recipient[]>('getRecipients', { year: year.toString() });
+  const data = await apiFetch<Recipient[]>('getRecipients', { year: year.toString() });
+  // Inject test image URL for all recipients until API provides imageUrl
+  return data.map((r) => ({
+    ...r,
+    imageUrl: r.imageUrl || TEST_IMAGE_URL,
+  }));
 }
 
 /**

@@ -1,14 +1,6 @@
 import { Link } from 'react-router-dom';
 
 const Header = () => {
-  const menuItems = [
-    { label: 'Home', to: '/' },
-    { label: 'About Us', to: '/about' },
-    { label: 'Get Involved', to: '/involved', hasDropdown: true },
-    { label: 'Gallery', to: '/gallery' },
-    { label: 'Contact Us', to: '/contact' },
-  ];
-
   return (
     <header className="site-header">
       <nav className="navbar navbar-expand-lg py-2">
@@ -31,16 +23,74 @@ const Header = () => {
 
           <div className="collapse navbar-collapse" id="mainNav">
             <ul className="navbar-nav mx-auto mb-2 mb-lg-0">
-              {menuItems.map((item) => (
-                <li className="nav-item" key={item.label}>
-                  <Link className="nav-link" to={item.to}>
-                    {item.label}
-                    {item.hasDropdown && (
-                      <span className="ms-1">&#9662;</span>
-                    )}
-                  </Link>
-                </li>
-              ))}
+              <li className="nav-item">
+                <Link className="nav-link" to="/">Home</Link>
+              </li>
+              <li className="nav-item">
+                <Link className="nav-link" to="/about">About Us</Link>
+              </li>
+
+              {/* For Parents dropdown */}
+              <li className="nav-item dropdown">
+                <a
+                  className="nav-link dropdown-toggle"
+                  href="#"
+                  role="button"
+                  data-bs-toggle="dropdown"
+                  aria-expanded="false"
+                >
+                  For Parents
+                </a>
+                <ul className="dropdown-menu">
+                  <li>
+                    <Link className="dropdown-item" to="/guidelines">
+                      Guidelines for Parents
+                    </Link>
+                  </li>
+                  <li>
+                    <Link className="dropdown-item" to="/request-quilt">
+                      Apply for a Quilt
+                    </Link>
+                  </li>
+                </ul>
+              </li>
+
+              {/* For Stitchers dropdown */}
+              <li className="nav-item dropdown">
+                <a
+                  className="nav-link dropdown-toggle"
+                  href="#"
+                  role="button"
+                  data-bs-toggle="dropdown"
+                  aria-expanded="false"
+                >
+                  For Stitchers
+                </a>
+                <ul className="dropdown-menu">
+                  <li>
+                    <Link className="dropdown-item" to="/directions">
+                      Directions for Stitchers
+                    </Link>
+                  </li>
+                  <li>
+                    <Link className="dropdown-item" to="/mailing">
+                      Mailing and Donations
+                    </Link>
+                  </li>
+                  <li>
+                    <Link className="dropdown-item" to="/signup">
+                      Sign up to Stitch
+                    </Link>
+                  </li>
+                </ul>
+              </li>
+
+              <li className="nav-item">
+                <Link className="nav-link" to="/gallery">Gallery</Link>
+              </li>
+              <li className="nav-item">
+                <Link className="nav-link" to="/contact">Contact Us</Link>
+              </li>
             </ul>
 
             <Link to="/request-quilt" className="btn-request">

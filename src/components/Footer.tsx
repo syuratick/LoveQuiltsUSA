@@ -49,7 +49,7 @@ const Footer = () => {
               <h3 className="footer-brand">Love Quilts USA</h3>
               <p className="footer-brand-text">
                 <span className="text-gold">Love Quilts USA</span> is a
-                registered nonprofit organization serving families nationwide.
+                volunteer organization serving families nationwide.
               </p>
               <a
                 href="https://facebook.com"
