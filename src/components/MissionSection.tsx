@@ -15,7 +15,7 @@ const cards = [
   },
   {
     title: 'Volunteers Engaged',
-    text: 'A nationwide community of compassionate volunteers who donate their time, skills, and hearts to make every quilt special.',
+    text: 'A community of compassionate volunteers who donate their time, skills, and hearts to make every quilt special.',
     cta: 'Meet Our Team',
     href: '#team',
   },

@@ -51,8 +51,7 @@ const DirectionsForStitchers = () => {
           </p>
 
           <p>
-            <strong>Do NOT</strong> add the child's name to your square unless that has been approved at the time you
-            sign up to stitch.
+            <strong>Do NOT</strong> add the child's name or the date to your square unless that has been approved at the time you sign up to stitch.
           </p>
 
           <p>

@@ -46,7 +46,7 @@ const HomepageTop = () => {
             <div className="d-flex align-items-start gap-3 mt-3">
               <span className="hero-star" aria-hidden="true">&#10022;</span>
               <p className="hero-description">
-                A nonprofit organization dedicated to handmade quilts for
+                A volunteer organization dedicated to handmade quilts for
                 children with life-threatening illnesses.
               </p>
             </div>
