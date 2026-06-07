@@ -1,15 +1,23 @@
 import { useState, useEffect } from 'react';
-import { Link } from 'react-router-dom';
+import { Link, useSearchParams } from 'react-router-dom';
 import { getRecipients, type Recipient } from '../util/LoveQuiltAPI';
+import { formatDate, years } from '../util/Common';
 import topBanner from '../assets/images/top-banner.svg';
-import {years} from '../util/Common'
 
 const GalleryPage = () => {
   const currentYear = new Date().getFullYear();
-  const [activeYear, setActiveYear] = useState(currentYear);
+  const [searchParams] = useSearchParams();
+  const yearFromQuery = parseInt(searchParams.get('year') || String(currentYear), 10);
+
+  const [activeYear, setActiveYear] = useState(yearFromQuery);
   const [recipients, setRecipients] = useState<Recipient[]>([]);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState<string | null>(null);
+
+  // Sync active year if query param changes
+  useEffect(() => {
+    setActiveYear(yearFromQuery);
+  }, [yearFromQuery]);
 
   const fetchData = async (year: number) => {
     setLoading(true);
@@ -79,8 +87,8 @@ const GalleryPage = () => {
               <div className="col-lg-4 col-md-6" key={child.id}>
                 <div className="gallery-card">
                   <div className="gallery-card-img">
-                    {child.imageUrl ? (
-                      <img src={child.imageUrl} alt={child.name} />
+                    {child.profilePicture ? (
+                      <img src={child.profilePicture} alt={child.name} />
                     ) : (
                       <div className="gallery-card-img-placeholder">
                         <span>Photo</span>
@@ -99,7 +107,7 @@ const GalleryPage = () => {
                       <div>
                         <p className="gallery-card-label">Due Date</p>
                         <p className="gallery-card-date">
-                          &#128197; {child.dueDate}
+                          &#128197; {formatDate(child.dueDate)}
                         </p>
                       </div>
                     </div>

@@ -1,7 +1,10 @@
 import { useEffect, useState } from 'react';
 import { useParams, Link } from 'react-router-dom';
+import  DOMPurify  from 'dompurify';
 import { getRecipients, type Recipient } from '../util/LoveQuiltAPI';
+import { formatDate } from '../util/Common';
 import topBanner from '../assets/images/top-banner.svg';
+
 
 const ChildDetail = () => {
   const { year, id } = useParams<{ year: string; id: string }>();
@@ -82,7 +85,8 @@ const ChildDetail = () => {
 
               <p className="child-detail-meta">
                 <span className="meta-label">Theme:</span> {child.theme}
-                &nbsp;&nbsp;
+                </p>
+                <p className="child-detail-meta">
                 <span className="meta-label">Favorite Colors:</span>{' '}
                 {child.color}
               </p>
@@ -95,7 +99,7 @@ const ChildDetail = () => {
                 <div>
                   <p className="child-detail-date-label">Due Date</p>
                   <p className="child-detail-date-value">
-                    &#128197; {child.dueDate}
+                    &#128197; {formatDate(child.dueDate)}
                   </p>
                 </div>
               </div>
@@ -113,10 +117,10 @@ const ChildDetail = () => {
             {/* Right – image placeholder */}
             <div className="col-lg-5 d-flex align-items-center justify-content-center">
               <div className="child-detail-images">
-                {child.imageUrl ? (
+                {child.profilePicture ? (
                   <img
                     className="child-detail-img"
-                    src={child.imageUrl}
+                    src={child.profilePicture}
                     alt={child.name}
                   />
                 ) : (
@@ -135,9 +139,14 @@ const ChildDetail = () => {
             {child.name.split('.')[0]}'s Journey
           </h3>
           <div className="child-detail-story-text">
-            {child.story.split('\n').map((paragraph, idx) => (
+            {/* {child.story.split('\n').map((paragraph, idx) => (
               <p key={idx}>{paragraph}</p>
-            ))}
+            ))} */}
+            <div
+                dangerouslySetInnerHTML={{
+                  __html: DOMPurify.sanitize(child.story),
+                }}
+              />
           </div>
         </div>
 
