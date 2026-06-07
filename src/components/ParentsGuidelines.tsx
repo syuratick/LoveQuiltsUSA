@@ -9,7 +9,7 @@ const ParentsGuidelines = () => {
         <div className="row align-items-center">
           {/* Left – text */}
           <div className="col-lg-6 mb-4 mb-lg-0">
-            <h2 className="parents-heading">Parents Guidelines</h2>
+            <h2 className="parents-heading">Parents' Guidelines</h2>
 
             <p className="parents-text">
               Thank you for your interest in receiving a quilt from Love Quilts
@@ -26,8 +26,9 @@ const ParentsGuidelines = () => {
               if the child fits all the requirements to receive a quilt. You
               will be notified at the email address you provide to us if your
               child is approved and you will be given an approximate time frame
-              for the quilt to arrive. Please note it can take 1-12 months to
-              get a quilt depending on the child's illness and theme choice.
+              for the quilt to arrive. Please note, it typically takes 5-6 months for a quilt to be completed and delivered. 
+              However, we often maintain a modest inventory of ready-made quilts that we may be able to deliver quickly depending 
+              on the child's illness and theme requested.
             </p>
 
             <Link to="/guidelines" className="btn-parents">

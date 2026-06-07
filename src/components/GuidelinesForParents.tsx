@@ -19,8 +19,9 @@ const GuidelinesForParents = () => {
             Once the application is received it will be reviewed to determine if the child fits all
             the requirements to receive a quilt. You will be notified at the email address you
             provide to us if your child is approved and you will be given an approximate time frame
-            for the quilt to arrive. Please note it can take 1-12 months to get a quilt depending on
-            the child's illness and theme choice.
+            for the quilt to arrive. Please note, it typically takes 5-6 months for a quilt to be completed and delivered. 
+            However, we often maintain a modest inventory of ready-made quilts that we may be able to deliver quickly depending on 
+              the child's illness and theme requested.
           </p>
 
           <p>
@@ -75,7 +76,7 @@ const GuidelinesForParents = () => {
 
           <p>
             No information will be posted on the Love Quilts USA website with the exception of the
-            first name and last initial of the child, home state, the birth date of the child, the
+            first name and last initial of the child, home state, the
             main diagnosis of the illness and the biography. All other info will be kept private and
             only shared with those that will be finishing and mailing the quilt to your child. If the
             parent wishes the child's website to be listed on their Love Quilts USA page, permission
@@ -95,9 +96,9 @@ const GuidelinesForParents = () => {
             from{' '}
             <a href="mailto:nezzylq@gmail.com" className="directions-link">
               nezzylq@gmail.com
-            </a>
-            . Please help us make this gift happen for your child. Thank you for understanding.
-          </p>
+            </a>. </p>
+            <p>Once we ship the quilt to you, the delivery <strong>must be signed for</strong> when it arrives.</p>
+             <p>Please help us make this gift happen for your child. Thank you for understanding.</p>
         </div>
 
         <div className="mt-4">

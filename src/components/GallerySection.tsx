@@ -1,6 +1,7 @@
 import { useState, useRef, useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import { getRecipients, type Recipient } from '../util/LoveQuiltAPI';
+import { formatDate } from '../util/Common';
 import { years } from '../util/Common';
 
 
@@ -54,9 +55,9 @@ const GallerySection = () => {
             with life-threatening illnesses
           </h2>
           <p className="gallery-subtitle">
-            Our quilts are made with hand-cross stitched squares that are sent
+            Our quilts are made with hand cross-stitched squares that are sent
             to us by the greatest bunch of caring individuals from all over the
-            world. The quilts are assembled by equally caring and devoted women.
+            world. The quilts are assembled by equally caring and devoted women and men.
           </p>
         </div>
 
@@ -108,17 +109,17 @@ const GallerySection = () => {
           </div>
         )}
 
-        {/* Children grid */}
+        {/* Children grid – show only first 3 */}
         {!loading && !error && recipients.length > 0 && (
           <div className="row g-4">
-            {recipients.map((child) => (
+            {recipients.slice(0, 3).map((child) => (
               <div className="col-lg-4 col-md-6" key={child.id}>
                 <div className="child-card">
                   {/* Image placeholder – will be replaced with DB images */}
                   <div className="child-card-img">
-                    {child.imageUrl ? (
+                    {child.profilePicture ? (
                       <img
-                        src={child.imageUrl}
+                        src={child.profilePicture}
                         alt={`${child.name}`}
                       />
                     ) : (
@@ -146,7 +147,7 @@ const GallerySection = () => {
                         <p className="child-card-label">Due Date</p>
                         <p className="child-card-value">
                           <span className="date-icon">&#128197;</span>{' '}
-                          {child.dueDate}
+                          {formatDate(child.dueDate)}
                         </p>
                       </div>
                       <div>
@@ -178,9 +179,9 @@ const GallerySection = () => {
 
         {/* See all button */}
         <div className="text-center mt-5">
-          <a href="#all-children" className="btn-see-all">
+          <Link to={`/gallery?year=${activeYear}`} className="btn-see-all">
             See all Children &rarr;
-          </a>
+          </Link>
         </div>
       </div>
     </section>

@@ -10,9 +10,9 @@ const AboutLoveQuilt = () => {
           </p>
 
           <p className="about-text">
-            Our quilts are made with hand-cross stitched squares that are sent to
+            Our quilts are made with hand cross-stitched squares that are sent to
             us by the greatest bunch of caring individuals from all over the
-            world. The quilts are assembled by equally caring and devoted women.
+            world. The quilts are assembled by equally caring and devoted women and men.
           </p>
 
           <p className="about-text">
@@ -20,7 +20,7 @@ const AboutLoveQuilt = () => {
             the left. Perhaps you'll be inspired to stitch one quilt square or
             many. Perhaps you'll decide to help us by assembling quilts. Or
             perhaps you have or know of a sick child who could benefit by being
-            covered in the love these quilts provide.
+            covered in the love these quilts provide.Our quilts are provided at no cost.
           </p>
 
           <p className="about-text">
