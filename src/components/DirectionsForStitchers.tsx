@@ -1,10 +1,16 @@
 import { Link } from 'react-router-dom';
+import headerImg from '../assets/images/header.png';
 
 const DirectionsForStitchers = () => {
   return (
     <main className="directions-page">
+      <div className="page-header-banner">
+        <img src={headerImg} alt="" aria-hidden="true" className="page-header-img" />
+        <div className="page-header-overlay">
+          <h1 className="page-header-title">Directions for Stitchers</h1>
+        </div>
+      </div>
       <div className="container py-5">
-        <h1 className="directions-heading">Directions for Stitchers</h1>
 
         <p className="directions-intro">
           Love Quilts USA appreciates and supports designers. We ask that our stitchers obey all

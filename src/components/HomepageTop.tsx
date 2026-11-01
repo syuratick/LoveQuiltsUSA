@@ -1,7 +1,8 @@
-import heroMain from '../assets/images/hero-main.svg';
-import heroSecondary from '../assets/images/hero-secondary.svg';
+//import heroMain from '../assets/images/hero-main.svg';
+//import heroSecondary from '../assets/images/hero-secondary.svg';
 import accentTop from '../assets/images/hero-accent-top.svg';
 import accentBottom from '../assets/images/hero-accent-bottom.svg';
+import Logo from '../assets/images/lovequilt_logo.png';
 import { Link } from 'react-router-dom';
 
 const HomepageTop = () => {
@@ -55,7 +56,7 @@ const HomepageTop = () => {
           {/* Right column – images */}
           <div className="col-lg-6 d-flex justify-content-center">
             <div className="hero-images">
-              <img
+              {/* <img
                 className="hero-img-main"
                 src={heroMain}
                 alt="Child receiving a handmade quilt"
@@ -64,8 +65,14 @@ const HomepageTop = () => {
                 className="hero-img-secondary"
                 src={heroSecondary}
                 alt="Volunteer stitching a quilt"
-              />
+              /> */}
+              <img
+                className="hero-img-main"
+                src={Logo}
+                alt="Love Quilts USA Logo"
+              /> 
             </div>
+             
           </div>
         </div>
       </div>
