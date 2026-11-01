@@ -1,14 +1,20 @@
 // Custom color overrides for Bootstrap
 $primary: #1a1a2e;
-$warning: #f5a623;
+$warning: #e8604c;
 $dark: #1a1a2e;
 $light: #f8f9fa;
 $body-bg: #ffffff;
 $font-family-sans-serif: 'Inter', system-ui, -apple-system, sans-serif;
 $font-family-heading: 'Nunito', 'Inter', system-ui, sans-serif;
 
-// Custom variables
-$brand-gold: #f5a623;
+// Brand palette – drawn from the Love Quilts USA logo
+$brand-gold: #e8604c;        // primary action – warm coral/rose
+$brand-accent: #4a90d9;      // sky blue – borders, highlights
+$brand-teal: #2a9d8f;        // teal – testimonial category, tags
+$brand-blue-bar: #4a90d9;    // support section top bar
+$brand-bg-warm: #fdf6f4;     // hero & warm section backgrounds
+$brand-bg-cream: #faf5f4;    // gallery / testimonial / misc sections
+$brand-bg-card: #fdf0ed;     // mission cards, memorial bg
 $brand-dark: #1a1a2e;
 $brand-text: #4a4a4a;
 $brand-text-light: #6b7280;

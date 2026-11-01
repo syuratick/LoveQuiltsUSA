@@ -1,10 +1,16 @@
 import { Link } from 'react-router-dom';
+import headerImg from '../assets/images/header.png';
 
 const MailingDonations = () => {
   return (
     <main className="directions-page">
+      <div className="page-header-banner">
+        <img src={headerImg} alt="" aria-hidden="true" className="page-header-img" />
+        <div className="page-header-overlay">
+          <h1 className="page-header-title">Mailing &amp; Donation Information</h1>
+        </div>
+      </div>
       <div className="container py-5">
-        <h1 className="directions-heading">Mailing &amp; Donation Information</h1>
 
         <div className="directions-content text-center">
           <p>

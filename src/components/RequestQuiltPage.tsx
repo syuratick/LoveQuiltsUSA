@@ -1,5 +1,6 @@
 import { useState } from 'react';
-import topBanner from '../assets/images/top-banner.svg';
+//import topBanner from '../assets/images/top-banner.svg';
+import topBanner from '../assets/images/header.png';
 
 const RequestQuiltPage = () => {
   const [form, setForm] = useState({

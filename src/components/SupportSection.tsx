@@ -1,4 +1,4 @@
-import supportChild from '../assets/images/support-child.svg';
+import supportChild from '../assets/images/Support_Child.png';
 import quiltDesk from '../assets/images/quilt-desk.svg';
 import heartsHands from '../assets/images/hearts-hands.svg';
 
