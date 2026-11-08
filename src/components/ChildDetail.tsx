@@ -3,7 +3,7 @@ import { useParams, Link } from 'react-router-dom';
 import  DOMPurify  from 'dompurify';
 import { getRecipients, type Recipient } from '../util/LoveQuiltAPI';
 import { formatDate } from '../util/Common';
-import topBanner from '../assets/images/top-banner.svg';
+import topBanner from '../assets/images/header.png';
 
 
 const ChildDetail = () => {
@@ -108,9 +108,9 @@ const ChildDetail = () => {
                 <a href="#signup" className="btn-detail-primary">
                   Sign Up &rarr;
                 </a>
-                <a href="#donate" className="btn-detail-secondary">
+                {/* <a href="#donate" className="btn-detail-secondary">
                   Make up a Donation Now &rarr;
-                </a>
+                </a> */}
               </div>
             </div>
 

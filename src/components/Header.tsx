@@ -96,6 +96,9 @@ const Header = () => {
             <Link to="/request-quilt" className="btn-request">
               Request A Quilt <span>&#9825;</span>
             </Link>
+            <Link to="/admin/child/new" className="btn-add-child ms-2">
+              + Add Child
+            </Link>
           </div>
         </div>
       </nav>

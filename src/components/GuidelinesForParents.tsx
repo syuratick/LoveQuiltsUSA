@@ -1,5 +1,6 @@
 import { Link } from 'react-router-dom';
 import headerImg from '../assets/images/header.png';
+import childQuiltImg from '../assets/images/Support_Child.png';
 
 const GuidelinesForParents = () => {
   return (
@@ -11,8 +12,7 @@ const GuidelinesForParents = () => {
         </div>
       </div>
       <div className="container py-5">
-
-        <div className="directions-content">
+        <div className="directions-content parents-guidelines-content">
           <p>
             Thank you for your interest in receiving a quilt from Love Quilts USA for your child. By
             submitting this form you are agreeing to allow Love Quilts USA to feature your child's
@@ -40,45 +40,53 @@ const GuidelinesForParents = () => {
             and we will do our best to explain.
           </p>
 
-          <p>
-            <strong>1. AGE LIMITS 3-18:</strong>{' '}
-            <span style={{ color: '#c0392b', fontWeight: 700 }}>
-              Do not apply if your child is under 3 or has reached their 18th birthday.
-            </span>
-          </p>
+          <div className="parents-guidelines-details">
+            <section aria-labelledby="parents-limitations-title">
+              <h2 id="parents-limitations-title">Our Limitations</h2>
+              <ul className="parents-guidelines-list">
+                <li>
+                  <strong>AGE LIMITS 3-18:</strong> Do not apply if your child is under 3 or has
+                  reached their 18th birthday.
+                </li>
+                <li>Child must live in the United States.</li>
+                <li>
+                  Child must be under treatment for a physical illness or condition which is life
+                  threatening. If treatment for the condition is finished, a child can still qualify
+                  if there are ongoing serious effects from either the condition or the treatment.
+                </li>
+                <li>
+                  Child must have an active webpage (such as Facebook or Caringbridge.org) with
+                  regular updates on the child's condition. A parent's Facebook may be used if it
+                  gives regular info on the child.
+                </li>
+              </ul>
 
-          <p>2. Child must live in the United States.</p>
+              <p>
+                If you feel your child meets these guidelines please feel free to fill out the
+                application form.
+              </p>
 
-          <p>
-            3. Child must be under treatment for a physical illness or condition which is life
-            threatening. If treatment for the condition is finished, a child can still qualify if
-            there are ongoing serious effects from either the condition or the treatment.
-          </p>
+              <h3>COMPLETING THE FORM:</h3>
+              <p>
+                All information is required unless it does not apply to your family. Please put N/A
+                in the boxes that do not apply. This form must be complete to be considered for a
+                quilt.{' '}
+                <strong className="guideline-highlight">
+                  Leaving any boxes blank will cause the application to not submit properly.
+                </strong>{' '}
+                Any questions can be emailed to us at
+              </p>
+              <a href="mailto:nezzylq@gmail.com" className="parents-guidelines-email-button">
+                nezzylq@gmail.com
+              </a>
+            </section>
 
-          <p>
-            4. Child must have an active webpage (such as Facebook or Caringbridge.org) with regular
-            updates on the child's condition. A parent's Facebook may be used if it gives regular
-            info on the child.
-          </p>
-
-          <p>
-            If you feel your child meets these guidelines please feel free to fill out the
-            application form.
-          </p>
-
-          <p>
-            <strong>COMPLETING THE FORM:</strong> All information is required unless it does not
-            apply to your family. Please put N/A in the boxes that do not apply. This form must be
-            complete to be considered for a quilt.{' '}
-            <span style={{ color: '#c0392b', fontWeight: 700 }}>
-              Leaving any boxes blank will cause the application to not submit properly.
-            </span>{' '}
-            Any questions can be emailed to us at{' '}
-            <a href="mailto:nezzylq@gmail.com" className="directions-link">
-              nezzylq@gmail.com
-            </a>
-            .
-          </p>
+            <img
+              src={childQuiltImg}
+              alt="A child showing her quilt"
+              className="parents-guidelines-image"
+            />
+          </div>
 
           <p>
             No information will be posted on the Love Quilts USA website with the exception of the
@@ -103,8 +111,11 @@ const GuidelinesForParents = () => {
             <a href="mailto:nezzylq@gmail.com" className="directions-link">
               nezzylq@gmail.com
             </a>. </p>
-            <p>Once we ship the quilt to you, the delivery <strong>must be signed for</strong> when it arrives.</p>
-             <p>Please help us make this gift happen for your child. Thank you for understanding.</p>
+          <p>
+            Once we ship the quilt to you, the delivery <strong>must be signed for</strong> when it
+            arrives.
+          </p>
+          <p>Please help us make this gift happen for your child. Thank you for understanding.</p>
         </div>
 
         <div className="mt-4">
