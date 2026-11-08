@@ -12,6 +12,8 @@ import GuidelinesForParents from './components/GuidelinesForParents';
 import MailingDonations from './components/MailingDonations';
 import RequestQuiltPage from './components/RequestQuiltPage';
 import ContactSection from './components/ContactSection';
+import LoginPage from './components/LoginPage';
+import ChildBioForm from './components/ChildBioForm';
 
 function App() {
   return (
@@ -29,6 +31,9 @@ function App() {
         <Route path="/mailing" element={<MailingDonations />} />
         <Route path="/request-quilt" element={<RequestQuiltPage />} />
         <Route path="/contact" element={<ContactSection/>} />
+        <Route path="/login" element={<LoginPage />} />
+        <Route path="/admin/child/new" element={<ChildBioForm />} />
+        <Route path="/admin/child/edit/:id" element={<ChildBioForm />} />
       </Routes>
       <Footer />
     </BrowserRouter>

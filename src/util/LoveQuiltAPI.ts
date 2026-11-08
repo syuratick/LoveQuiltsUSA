@@ -115,6 +115,35 @@ export async function getGalleryImages(year: number): Promise<string[]> {
 }
 
 /**
+ * Save (add/edit) a recipient/child bio
+ */
+export async function saveRecipient(data: Partial<Recipient> & { photoFile?: File }): Promise<Recipient> {
+  const url = new URL(`${BASE_URL}/saveRecipient`);
+  url.searchParams.set('code', API_CODE);
+
+  // Use FormData so photo file can be included
+  const formData = new FormData();
+  Object.entries(data).forEach(([key, value]) => {
+    if (key === 'photoFile' && value instanceof File) {
+      formData.append('photo', value);
+    } else if (value !== undefined) {
+      formData.append(key, String(value));
+    }
+  });
+
+  const res = await fetch(url.toString(), {
+    method: 'POST',
+    body: formData,
+  });
+
+  if (!res.ok) {
+    throw new Error(`API error: ${res.status} ${res.statusText}`);
+  }
+
+  return res.json();
+}
+
+/**
  * Request a quilt (form submission)
  */
 export async function requestQuilt(data: Record<string, string>): Promise<void> {

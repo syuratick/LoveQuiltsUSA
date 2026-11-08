@@ -76,7 +76,7 @@ const ContactSection = () => {
               </div>
 
               <button type="submit" className="btn-contact-submit">
-                Request a Quilt from Love Quilts USA &rarr;
+                Submit
               </button>
             </form>
           </div>

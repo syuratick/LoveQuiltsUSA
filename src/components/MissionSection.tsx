@@ -26,20 +26,8 @@ const MissionSection = () => {
     <section className="mission-section">
       <div className="container py-5">
         <div className="row">
-          {/* Left – large child image */}
-          <div className="col-lg-5 mb-4 mb-lg-0">
-            <div className="mission-image-wrapper">
-              <img
-                className="mission-img"
-                src={childQuilt}
-                alt="Child wrapped in a handmade quilt"
-              />
-              {/* Decorative gold swoosh */}
-              <div className="mission-swoosh" aria-hidden="true"></div>
-            </div>
-          </div>
-
-          {/* Right – heading + cards */}
+                   
+          {/* Left – heading + cards */}
           <div className="col-lg-7">
             <h2 className="mission-heading">Love Quilts USA</h2>
             <p className="mission-intro">
@@ -53,13 +41,27 @@ const MissionSection = () => {
                 <div className="mission-card" key={card.title}>
                   <h3 className="mission-card-title">{card.title}</h3>
                   <p className="mission-card-text">{card.text}</p>
-                  <a href={card.href} className="btn-mission">
+                  {/* <a href={card.href} className="btn-mission">
                     {card.cta}
-                  </a>
+                  </a> */}
                 </div>
               ))}
             </div>
           </div>
+
+          {/* Right – large child image */}
+          <div className="col-lg-5 mb-4 mb-lg-0">
+            <div className="mission-image-wrapper">
+              <img
+                className="mission-img"
+                src={childQuilt}
+                alt="Child wrapped in a handmade quilt"
+              />
+              {/* Decorative gold swoosh */}
+              <div className="mission-swoosh" aria-hidden="true"></div>
+            </div>
+          </div>
+
         </div>
       </div>
     </section>

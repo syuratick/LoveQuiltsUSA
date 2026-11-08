@@ -14,7 +14,7 @@ const Footer = () => {
   return (
     <footer className="site-footer">
       {/* Top banner – Join community */}
-      <div className="footer-cta">
+      {/* <div className="footer-cta">
         <div className="container text-center py-4">
           <h2 className="footer-cta-heading">
             Join the Love Quilts USA Community
@@ -38,7 +38,7 @@ const Footer = () => {
             </button>
           </form>
         </div>
-      </div>
+      </div> */}
 
       {/* Bottom – links & info */}
       <div className="footer-main">
@@ -51,7 +51,7 @@ const Footer = () => {
                 <span className="text-gold">Love Quilts USA</span> is a
                 volunteer organization serving families nationwide.
               </p>
-              <a
+              {/* <a
                 href="https://facebook.com"
                 className="footer-fb-link"
                 target="_blank"
@@ -59,28 +59,25 @@ const Footer = () => {
               >
                 <span className="footer-fb-icon" aria-hidden="true">f</span>
                 LQUSA on Facebook
-              </a>
+              </a> */}
             </div>
 
             {/* Links column 1 */}
             <div className="col-lg-4 col-md-6 mb-4 mb-lg-0">
-              <h4 className="footer-links-heading">Links</h4>
               <ul className="footer-links">
-                <li><Link to="/signup">Sign up</Link></li>
-                <li><Link to="/guidelines">Guidelines for Parents</Link></li>
-                <li><Link to="/directions">Directions for Stitchers</Link></li>
+                <li><Link to="/login">Login</Link></li>
               </ul>
             </div>
 
             {/* Links column 2 */}
-            <div className="col-lg-4 col-md-6">
+            {/* <div className="col-lg-4 col-md-6">
               <h4 className="footer-links-heading">Links</h4>
               <ul className="footer-links">
                 <li><a href="#photos">Photo Site</a></li>
                 <li><a href="#email">Email Us</a></li>
                 <li><Link to="/mailing">Mailing &amp; Donations</Link></li>
               </ul>
-            </div>
+            </div> */}
           </div>
 
           <hr className="footer-divider" />
