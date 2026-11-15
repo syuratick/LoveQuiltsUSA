@@ -26,6 +26,13 @@ export interface ContactFormData {
   message: string;
 }
 
+interface LoginResponse {
+  FirstName?: string | null;
+  LastName?: string | null;
+  firstName?: string | null;
+  lastName?: string | null;
+}
+
 // ─── Helper ───
 
 async function apiFetch<T>(endpoint: string, params?: Record<string, string>): Promise<T> {
@@ -72,6 +79,35 @@ export async function getRecipientById(id: string): Promise<Recipient> {
 }
 
 /**
+ * Validate admin credentials
+ */
+export async function loginAdmin(username: string, password: string): Promise<boolean> {
+  const url = new URL(`${BASE_URL}/Login`);
+  url.searchParams.set('code', API_CODE);
+
+  const res = await fetch(url.toString(), {
+    method: 'POST',
+    headers: { 'Content-Type': 'application/json' },
+    body: JSON.stringify({ Username: username, Password: password }),
+  });
+
+  if (!res.ok) {
+    throw new Error(`API error: ${res.status} ${res.statusText}`);
+  }
+
+  const data: LoginResponse | null = await res.json();
+  if (!data || typeof data !== 'object') {
+    return false;
+  }
+
+  const firstName = data.FirstName ?? data.firstName;
+  const lastName = data.LastName ?? data.lastName;
+
+  return typeof firstName === 'string' && firstName.trim().length > 0
+    && typeof lastName === 'string' && lastName.trim().length > 0;
+}
+
+/**
  * Submit contact form
  */
 export async function submitContactForm(data: ContactFormData): Promise<void> {
@@ -112,6 +148,35 @@ export async function subscribeNewsletter(email: string): Promise<void> {
  */
 export async function getGalleryImages(year: number): Promise<string[]> {
   return apiFetch<string[]>('getGalleryImages', { year: year.toString() });
+}
+
+/**
+ * Save (add/edit) a recipient/child bio
+ */
+export async function saveRecipient(data: Partial<Recipient> & { photoFile?: File }): Promise<Recipient> {
+  const url = new URL(`${BASE_URL}/saveRecipient`);
+  url.searchParams.set('code', API_CODE);
+
+  // Use FormData so photo file can be included
+  const formData = new FormData();
+  Object.entries(data).forEach(([key, value]) => {
+    if (key === 'photoFile' && value instanceof File) {
+      formData.append('photo', value);
+    } else if (value !== undefined) {
+      formData.append(key, String(value));
+    }
+  });
+
+  const res = await fetch(url.toString(), {
+    method: 'POST',
+    body: formData,
+  });
+
+  if (!res.ok) {
+    throw new Error(`API error: ${res.status} ${res.statusText}`);
+  }
+
+  return res.json();
 }
 
 /**

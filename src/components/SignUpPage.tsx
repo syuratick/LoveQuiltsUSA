@@ -1,5 +1,5 @@
 import { useState } from 'react';
-import topBanner from '../assets/images/sign-up.svg';
+import topBanner from '../assets/images/header.png';
 
 const US_STATES = [
   'Alabama', 'Alaska', 'Arizona', 'Arkansas', 'California', 'Colorado',

@@ -1,5 +1,5 @@
 import { useState } from 'react';
-import testimonialImg from '../assets/images/testimonial-knitting.svg';
+import testimonialImg from '../assets/images/Testimonials.png';
 
 interface Testimonial {
   id: number;

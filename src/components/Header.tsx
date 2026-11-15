@@ -1,6 +1,10 @@
 import { Link } from 'react-router-dom';
 
-const Header = () => {
+interface HeaderProps {
+  isAuthenticated: boolean;
+}
+
+const Header = ({ isAuthenticated }: HeaderProps) => {
   return (
     <header className="site-header">
       <nav className="navbar navbar-expand-lg py-2">
@@ -96,6 +100,11 @@ const Header = () => {
             <Link to="/request-quilt" className="btn-request">
               Request A Quilt <span>&#9825;</span>
             </Link>
+            {isAuthenticated && (
+              <Link to="/admin/child/new" className="btn-add-child ms-2">
+                + Add Child
+              </Link>
+            )}
           </div>
         </div>
       </nav>

@@ -2,7 +2,7 @@ import { useState, useEffect } from 'react';
 import { Link, useSearchParams } from 'react-router-dom';
 import { getRecipients, type Recipient } from '../util/LoveQuiltAPI';
 import { formatDate, years } from '../util/Common';
-import topBanner from '../assets/images/top-banner.svg';
+import topBanner from '../assets/images/header.png';
 
 const GalleryPage = () => {
   const currentYear = new Date().getFullYear();

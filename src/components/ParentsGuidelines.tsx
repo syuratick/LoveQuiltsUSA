@@ -1,4 +1,4 @@
-import parentsSewing from '../assets/images/parents-sewing.svg';
+import parentsSewing from '../assets/images/Parents_Guidelines.png';
 import loveHeart from '../assets/images/love-heart.svg';
 import { Link } from 'react-router-dom';
 
