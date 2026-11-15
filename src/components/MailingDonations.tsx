@@ -11,31 +11,33 @@ const MailingDonations = () => {
         </div>
       </div>
       <div className="container py-5">
+        <div className="directions-content mailing-donations-content">
+          <p>All squares are to be mailed to:</p>
 
-        <div className="directions-content text-center">
-          <p>
-            All squares are to be mailed to:<br />
-            (New Address)
+          <p className="mailing-donations-address">
+            <svg
+              className="mailing-donations-location-icon"
+              viewBox="0 0 24 24"
+              aria-hidden="true"
+            >
+              <path d="M20 10c0 5-8 12-8 12S4 15 4 10a8 8 0 1 1 16 0Z" />
+              <circle cx="12" cy="10" r="2.5" />
+            </svg>
+            <strong>Carolyn Pearson 806 Waverly Rd. Middleboro, MA 02346</strong>
           </p>
 
           <p>
-            <strong>Carolyn Pearson</strong><br />
-            <strong>806 Waverly Rd.</strong><br />
-            <strong>Middleboro, MA 02346</strong>
-          </p>
-
-          <p style={{ color: '#c0392b', fontWeight: 600 }}>
             Copy and paste the email below to contact Carolyn
-          </p>
-          <p>
+            <br />
             <a href="mailto:cnevillepearson@gmail.com" className="directions-link">
               cnevillepearson@gmail.com
             </a>
           </p>
 
           <p>
-            If possible please add $5.00 with each square to help cover the cost of putting the
-            quilt together and postage to mail it to the child.
+            If possible please add{' '}
+            <strong className="mailing-donations-highlight">$5.00</strong> with each square to
+            help cover the cost of putting the quilt together and postage to mail it to the child.
           </p>
 
           <p>
@@ -45,12 +47,22 @@ const MailingDonations = () => {
           </p>
 
           <p>
-            Donations may be made at <strong>PayPal</strong> to inez1952@hotmail.com
+            Donations may be made at <strong className="mailing-donations-highlight">PayPal</strong>{' '}
+            to{' '}
+            <a
+              href="mailto:inez1952@hotmail.com"
+              className="mailing-donations-highlight directions-link"
+            >
+              inez1952@hotmail.com
+            </a>
           </p>
 
           <p>
-            If you mark your donation as "Sending to a friend", PayPal will not take a fee and
-            LQUSA will receive the entire amount.
+            If you mark your donation as{' '}
+            <strong className="mailing-donations-highlight">"Sending to a friend"</strong>, PayPal
+            will not take a fee and{' '}
+            <strong className="mailing-donations-highlight">LQUSA</strong> will receive the entire
+            amount.
           </p>
 
           <p>
@@ -58,10 +70,12 @@ const MailingDonations = () => {
             your name, and email address. Also indicate if the square has been washed.
           </p>
 
-          <p><strong>Thanks!!</strong></p>
+          <p>
+            <strong className="mailing-donations-highlight">Thanks!!</strong>
+          </p>
         </div>
 
-        <div className="mt-4 text-center">
+        <div className="mt-4 text-left">
           <Link to="/" className="directions-back">
             &larr; Back to Home
           </Link>

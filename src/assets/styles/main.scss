@@ -1494,7 +1494,7 @@ body {
 
   .child-detail-images {
     width: 100%;
-    max-width: 320px;
+    max-width: 240px;
   }
 
   .child-detail-img {
@@ -2182,6 +2182,48 @@ body {
     }
   }
 
+  .mailing-donations-content {
+    max-width: none;
+    margin: 0;
+    font-size: 0.75rem;
+
+    p {
+      font-size: inherit;
+      line-height: 1.55;
+      margin-bottom: 0.45rem;
+    }
+
+    .mailing-donations-address {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.45rem;
+      padding: 0.45rem 0.75rem;
+      border-radius: 0.35rem;
+      background: $brand-bg-cream;
+      color: $brand-red;
+
+      strong {
+        color: inherit;
+      }
+    }
+
+    .mailing-donations-location-icon {
+      width: 0.9rem;
+      height: 0.9rem;
+      fill: none;
+      stroke: $brand-red;
+      stroke-linecap: round;
+      stroke-linejoin: round;
+      stroke-width: 1.8;
+      flex: 0 0 auto;
+    }
+
+    .mailing-donations-highlight,
+    .directions-link {
+      color: $brand-red;
+    }
+  }
+
   .directions-link {
     color: $brand-gold;
     font-weight: 600;
@@ -2313,7 +2355,7 @@ body {
     }
 
     .parents-guidelines-details h3 {
-      color: #c0392b;
+      color: $brand-red;
       font-family: $font-family-sans-serif;
       font-size: 1rem;
       font-weight: 700;
@@ -2334,19 +2376,19 @@ body {
         &::before {
           position: absolute;
           left: 0;
-          color: #c0392b;
+          color: $brand-red;
           content: '•';
           font-weight: 700;
         }
       }
 
       strong {
-        color: #c0392b;
+        color: $brand-red;
       }
     }
 
     .guideline-highlight {
-      color: #c0392b;
+      color: $brand-red;
     }
 
     .parents-guidelines-image {
@@ -2359,14 +2401,14 @@ body {
     }
 
     .directions-link {
-      color: #c0392b;
+      color: $brand-red;
     }
 
     .parents-guidelines-email-button {
       display: inline-flex;
       padding: 0.4rem 1rem;
       border-radius: 50px;
-      background: #c0392b;
+      background: $brand-red;
       color: #fff;
       font-size: 0.85rem;
       font-weight: 700;

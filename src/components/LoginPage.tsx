@@ -1,17 +1,42 @@
 import { useState } from 'react';
+import { useNavigate } from 'react-router-dom';
 import headerImg from '../assets/images/header.png';
+import { loginAdmin } from '../util/LoveQuiltAPI';
 
-const LoginPage = () => {
+interface LoginPageProps {
+  onLoginSuccess: () => void;
+}
+
+const LoginPage = ({ onLoginSuccess }: LoginPageProps) => {
+  const navigate = useNavigate();
   const [form, setForm] = useState({ username: '', password: '' });
+  const [error, setError] = useState<string | null>(null);
+  const [isSubmitting, setIsSubmitting] = useState(false);
 
   const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
-    setForm({ ...form, [e.target.name]: e.target.value });
+    setForm((currentForm) => ({ ...currentForm, [e.target.name]: e.target.value }));
+    setError(null);
   };
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
-    // TODO: wire up authentication
-    console.log('Login:', form);
+    setError(null);
+    setIsSubmitting(true);
+
+    try {
+      const isValid = await loginAdmin(form.username, form.password);
+      if (!isValid) {
+        setError('Username and password are not correct. Please check and try again.');
+        return;
+      }
+
+      onLoginSuccess();
+      navigate('/');
+    } catch (err) {
+      setError(err instanceof Error ? err.message : 'Unable to log in. Please try again.');
+    } finally {
+      setIsSubmitting(false);
+    }
   };
 
   return (
@@ -32,13 +57,14 @@ const LoginPage = () => {
             </p>
           </div>
 
-          <form onSubmit={handleSubmit}>
+          <form onSubmit={handleSubmit} aria-busy={isSubmitting}>
             <div className="mb-3">
-              <label className="signup-label">
+              <label className="signup-label" htmlFor="login-username">
                 Username <span className="required">(Required)</span>
               </label>
               <input
                 type="text"
+                id="login-username"
                 name="username"
                 className="signup-input"
                 placeholder="Enter your username"
@@ -49,11 +75,12 @@ const LoginPage = () => {
             </div>
 
             <div className="mb-4">
-              <label className="signup-label">
+              <label className="signup-label" htmlFor="login-password">
                 Password <span className="required">(Required)</span>
               </label>
               <input
                 type="password"
+                id="login-password"
                 name="password"
                 className="signup-input"
                 placeholder="Enter your password"
@@ -63,9 +90,15 @@ const LoginPage = () => {
               />
             </div>
 
+            {error && (
+              <div className="alert alert-danger" role="alert">
+                {error}
+              </div>
+            )}
+
             <div className="text-center">
-              <button type="submit" className="btn-signup-submit">
-                Login &rarr;
+              <button type="submit" className="btn-signup-submit" disabled={isSubmitting}>
+                {isSubmitting ? 'Checking...' : <>Login &rarr;</>}
               </button>
             </div>
           </form>
