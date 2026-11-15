@@ -102,16 +102,7 @@ const ChildDetail = () => {
                     &#128197; {formatDate(child.dueDate)}
                   </p>
                 </div>
-              </div>
-
-              <div className="child-detail-actions">
-                <a href="#signup" className="btn-detail-primary">
-                  Sign Up &rarr;
-                </a>
-                {/* <a href="#donate" className="btn-detail-secondary">
-                  Make up a Donation Now &rarr;
-                </a> */}
-              </div>
+              </div>              
             </div>
 
             {/* Right – image placeholder */}
@@ -152,6 +143,18 @@ const ChildDetail = () => {
 
         {/* Back link */}
         <div className="mt-4">
+          <div className="child-detail-actions">
+                <a href="#signup" className="btn-detail-primary">
+                  Sign Up
+                </a>
+                 <a href="#squares" className="btn-detail-primary">
+                  Squares Received 
+                </a> 
+                <a href="#finished" className="btn-detail-primary">
+                  Finished Quilt 
+                </a> 
+             </div>
+             <br/>
           <Link to="/" className="btn-back-home">
             &larr; Back to Home
           </Link>
