@@ -6,39 +6,48 @@ import topBanner from '../assets/images/header.png';
 
 const GalleryPage = () => {
   const currentYear = new Date().getFullYear();
-  const [searchParams] = useSearchParams();
-  const yearFromQuery = parseInt(searchParams.get('year') || String(currentYear), 10);
+  const [searchParams, setSearchParams] = useSearchParams();
+  const queryYear = Number(searchParams.get('year'));
+  const activeYear = Number.isInteger(queryYear) && queryYear > 0 ? queryYear : currentYear;
 
-  const [activeYear, setActiveYear] = useState(yearFromQuery);
-  const [recipients, setRecipients] = useState<Recipient[]>([]);
-  const [loading, setLoading] = useState(true);
-  const [error, setError] = useState<string | null>(null);
-
-  // Sync active year if query param changes
-  useEffect(() => {
-    setActiveYear(yearFromQuery);
-  }, [yearFromQuery]);
-
-  const fetchData = async (year: number) => {
-    setLoading(true);
-    setError(null);
-    try {
-      const data = await getRecipients(year);
-      setRecipients(data);
-    } catch (err) {
-      setError(err instanceof Error ? err.message : 'Something went wrong');
-      setRecipients([]);
-    } finally {
-      setLoading(false);
-    }
-  };
+  const [requestResult, setRequestResult] = useState<{
+    year: number;
+    recipients: Recipient[];
+    error: string | null;
+  } | null>(null);
+  const loading = requestResult?.year !== activeYear;
+  const recipients = loading ? [] : requestResult.recipients;
+  const error = loading ? null : requestResult.error;
 
   useEffect(() => {
-    fetchData(activeYear);
+    let cancelled = false;
+
+    getRecipients(activeYear)
+      .then((data) => {
+        if (!cancelled) {
+          setRequestResult({ year: activeYear, recipients: data, error: null });
+        }
+      })
+      .catch((err: unknown) => {
+        if (!cancelled) {
+          setRequestResult({
+            year: activeYear,
+            recipients: [],
+            error: err instanceof Error ? err.message : 'Something went wrong',
+          });
+        }
+      });
+
+    return () => {
+      cancelled = true;
+    };
   }, [activeYear]);
 
   const handleYearClick = (year: number) => {
-    setActiveYear(year);
+    setSearchParams((currentParams) => {
+      currentParams.set('year', String(year));
+      return currentParams;
+    });
   };
 
   return (

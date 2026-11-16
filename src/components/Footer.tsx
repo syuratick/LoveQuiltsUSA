@@ -1,16 +1,6 @@
-import { useState } from 'react';
 import { Link } from 'react-router-dom';
 
 const Footer = () => {
-  const [email, setEmail] = useState('');
-
-  const handleSubscribe = (e: React.FormEvent) => {
-    e.preventDefault();
-    // TODO: wire up newsletter subscription
-    console.log('Subscribe:', email);
-    setEmail('');
-  };
-
   return (
     <footer className="site-footer">
       {/* Top banner – Join community */}
